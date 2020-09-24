@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+ 
 }
 
 .App-logo {
@@ -35,4 +36,14 @@
   to {
     transform: rotate(360deg);
   }
+}
+.countries {
+  display: flex;
+  flex-wrap: wrap;
+}
+.country {
+  width: 30%;
+}
+img {
+  width: 200px;
 }
