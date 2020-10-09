@@ -50,6 +50,16 @@ body {
   width: 20%;
   background-color: white;
 }
+
+ul {
+  list-style-type: none;
+  display: inline;
+ }
+
+li {
+  margin-bottom: 10px;
+}
+
 img {
   width: 100%;
 }
@@ -58,4 +68,12 @@ img {
   display: flex;
   justify-content: space-between;
   padding: 30px 45px 30px 45px;
+}
+
+.form-control {
+  width: 120px;
+}
+
+.listItem {
+  cursor: pointer;
 }

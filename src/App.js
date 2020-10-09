@@ -1,19 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import "./App.css";
 import Header from "./Header";
-import AllCountries from "./countriesAll.json";
 import ShowCountries from "./ShowCountries";
 import Search from "./Search";
+import ShowDetail from "./ShowDetail";
 
 function App() {
-  const [countryList, setCountryList] = useState(AllCountries);
+  const [allCountries,setAllCountries] = useState([]);
+  const [countryList, setCountryList] = useState([]);
   const [region, setRegion] = useState("");
   const [search, setSearch] = useState("");
-
+  const [showDetail, setShowDetail] = useState(false);
+  const [showDetailCountry, setShowDetailCountry] = useState([]);
+  
+  useEffect(() => {fetch(`https://restcountries.eu/rest/v2/all`)
+  .then(resp => resp.json())
+.then(data => {setAllCountries(data); setCountryList(data)}) },[])
+  
+  
   const filterCountry = (e) => {
     setCountryList(
-      AllCountries.filter(
+      allCountries.filter(
         (item) =>
           (item.name.toLowerCase().includes(e.target.value.toLowerCase()) ||
             item.capital
@@ -28,7 +36,7 @@ function App() {
   const filterByRegion = (e) => {
     console.log(e.target.value);
     setCountryList(
-      AllCountries.filter(
+      allCountries.filter(
         (item) =>
           (item.name.toLowerCase().includes(search) ||
             item.capital.toLowerCase().includes(search)) &&
@@ -38,11 +46,16 @@ function App() {
     setRegion(e.target.value);
   };
 
-  let mySet = new Set();
-  AllCountries.forEach((item) => mySet.add(item.region));
-  let regionArr = Array.from(mySet)
-    .sort()
-    .filter((item) => item);
+  const showMore = (countryCode) => {
+ setShowDetail(true);
+ setShowDetailCountry(allCountries.find(item => item.alpha3Code === countryCode))
+};
+
+let mySet = new Set();
+allCountries.forEach((item) => mySet.add(item.region));
+let regionArr = Array.from(mySet)
+.sort()
+.filter((item) => item);
 
   return (
     <div className="App">
@@ -51,8 +64,11 @@ function App() {
         filterCountry={filterCountry}
         filterByRegion={filterByRegion}
         regionArr={regionArr}
+        showDetail={showDetail}
+        setShowDetail={setShowDetail}
       />
-      <ShowCountries data={countryList} />
+      {showDetail ? <ShowDetail showDetailCountry={showDetailCountry} showMore={showMore} />:
+      <ShowCountries data={countryList} showMore={showMore} />}
     </div>
   );
 }

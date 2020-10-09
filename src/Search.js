@@ -1,8 +1,14 @@
 import React from "react";
 
-const Search = ({ filterCountry, filterByRegion, regionArr }) => {
+const Search = ({ filterCountry, filterByRegion, regionArr, showDetail, setShowDetail }) => {
+
+  const goBack = () => {
+    setShowDetail(false);
+  };
+
   return (
     <form className="form">
+
       <input
         type="text"
         id="chooseName"
@@ -10,12 +16,16 @@ const Search = ({ filterCountry, filterByRegion, regionArr }) => {
         placeholder="Search for a country"
         onChange={filterCountry}
       />
-      <select onChange={filterByRegion}>
+
+      {showDetail && <button onClick={goBack}>Back</button> }
+
+      <select onChange={filterByRegion} className="form-control">
         <option value="">Filter by Region</option>
         {regionArr.map((item) => (
-          <option value={item}>{item}</option>
+          <option value={item} key={item}>{item}</option>
         ))}
       </select>
+
     </form>
   );
 };
