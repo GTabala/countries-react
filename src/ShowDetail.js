@@ -1,12 +1,14 @@
 import React from "react";
 import ConvertNumber from "./ConvertNumber";
 
-const ShowDetail = ({showDetailCountry, showMore}) => {
+const ShowDetail = ({showDetailCountry, showMore, allCountries}) => {
 
   const showNeighbour = (e) => {
-    showMore(e.target.innerText);
+    console.log(e.target.innerText);
+    console.log(e.target.alt);
+    showMore(e.target.innerText ? e.target.innerText:e.target.alt);
   };
-
+let borderCountry = allCountries.filter(item => showDetailCountry.borders.includes(item.alpha3Code));
   return (
     <div className="countries">
 
@@ -17,7 +19,7 @@ const ShowDetail = ({showDetailCountry, showMore}) => {
             <h5>Region: {showDetailCountry.region} </h5>
             <h5>Capital: {showDetailCountry.capital}</h5>
             <ul>
-              {showDetailCountry.borders.map(item => <li onClick={showNeighbour} className="listItem">{item}</li>)}
+              {borderCountry.map(item => <li onClick={showNeighbour} className="listItem"><img src={item.flag} className="smallFlag" alt={item.alpha3Code} />{item.alpha3Code}</li>)}
             </ul>
           </div>
    </div>
