@@ -46,9 +46,9 @@ function App() {
     setRegion(e.target.value);
   };
 
-  const showMore = (countryCode) => {
+  const showMore = (countryName) => {
  setShowDetail(true);
- setShowDetailCountry(allCountries.find(item => item.alpha3Code === countryCode))
+ setShowDetailCountry(allCountries.find(item => item.name === countryName))
 };
 
 let mySet = new Set();

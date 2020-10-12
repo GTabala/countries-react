@@ -5,7 +5,7 @@ import ShowList from "./ShowList";
 const ShowDetail = ({showDetailCountry, showMore, allCountries}) => {
 
   const showNeighbour = (e) => {
-    console.log(e.target.innerText);
+    console.log(e.target.key);
     console.log(e.target.alt);
     showMore(e.target.innerText ? e.target.innerText:e.target.alt);
   };
@@ -22,7 +22,7 @@ let borderCountry = allCountries.filter(item => showDetailCountry.borders.includ
             <ShowList dataArray={showDetailCountry.languages} title="Languages:" />
             <ShowList dataArray={showDetailCountry.currencies} title="Currencies:" />
             <ul>
-              {borderCountry.map(item => <li onClick={showNeighbour} className="listItem"><img src={item.flag} className="smallFlag" alt={item.alpha3Code} />{item.alpha3Code}</li>)}
+              {borderCountry.map(item => <li onClick={showNeighbour} className="listItem" key={item.alpha3Code}><img src={item.flag} className="smallFlag" alt={item.name} />{item.name}</li>)}
             </ul>
           </div>
    </div>

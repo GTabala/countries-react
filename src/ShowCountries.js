@@ -14,7 +14,7 @@ const showMoreHandle = (e) => {
     <div className="countries">
       {data.map((data) => {
         return (
-          <div className="country" onClick={showMoreHandle} key={data.alpha3Code} id={data.alpha3Code}>
+          <div className="country" onClick={showMoreHandle} key={data.alpha3Code} id={data.name}>
             <img src={data.flag} alt="" />
             <h4>{data.name}</h4>
             <h5>Population: <ConvertNumber numberToConvert={data.population} /></h5>
