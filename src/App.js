@@ -13,12 +13,15 @@ function App() {
   const [search, setSearch] = useState("");
   const [showDetail, setShowDetail] = useState(false);
   const [showDetailCountry, setShowDetailCountry] = useState([]);
+  const [colorMode, setColorMode] = useState(0);
   
   useEffect(() => {fetch(`https://restcountries.eu/rest/v2/all`)
   .then(resp => resp.json())
 .then(data => {setAllCountries(data); setCountryList(data)}) },[])
   
-  
+  const letSetColorMode = () => {
+    setColorMode(!colorMode);
+  };
   const filterCountry = (e) => {
     setCountryList(
       allCountries.filter(
@@ -59,7 +62,7 @@ let regionArr = Array.from(mySet)
 
   return (
     <div className="App">
-      <Header />
+      <Header setColorMode={letSetColorMode} colorMode={colorMode} />
       <Search
         filterCountry={filterCountry}
         filterByRegion={filterByRegion}

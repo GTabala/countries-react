@@ -95,3 +95,15 @@ img {
     width: 45%;
   }
 }
+#lightMode {
+  align-self: flex-end;
+  margin-right: 10px;
+}
+
+.night {
+  background-color: rebeccapurple;
+}
+.day {
+  
+  background-color: salmon;
+}
