@@ -2,7 +2,7 @@ import React from "react";
 import ConvertNumber from "./ConvertNumber";
 import ShowList from "./ShowList";
 
-const ShowDetail = ({showDetailCountry, showMore, allCountries}) => {
+const ShowDetail = ({showDetailCountry, showMore, allCountries, colorMode}) => {
 
   const showNeighbour = (e) => {
     console.log(e.target.key);
@@ -11,9 +11,9 @@ const ShowDetail = ({showDetailCountry, showMore, allCountries}) => {
   };
 let borderCountry = allCountries.filter(item => showDetailCountry.borders.includes(item.alpha3Code));
   return (
-    <div className="countries">
+    <div className={colorMode ? "countries allNight":"countries"}>
 
-    <div className="countryDetail" >
+    <div className={colorMode ? "countryDetail allNight nightBorder":"countryDetail"} >
             <img src={showDetailCountry.flag} alt="" />
             <h4>{showDetailCountry.name}</h4>
             <h5>Population: <ConvertNumber numberToConvert={showDetailCountry.population} /></h5>

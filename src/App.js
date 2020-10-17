@@ -69,9 +69,10 @@ let regionArr = Array.from(mySet)
         regionArr={regionArr}
         showDetail={showDetail}
         setShowDetail={setShowDetail}
+        colorMode={colorMode}
       />
-      {showDetail ? <ShowDetail showDetailCountry={showDetailCountry} showMore={showMore} allCountries={allCountries} />:
-      <ShowCountries data={countryList} showMore={showMore} />}
+      {showDetail ? <ShowDetail showDetailCountry={showDetailCountry} showMore={showMore} allCountries={allCountries} colorMode={colorMode} />:
+      <ShowCountries data={countryList} showMore={showMore} colorMode={colorMode} />}
     </div>
   );
 }

@@ -3,7 +3,7 @@ import React from "react";
 import "./App.css";
 import ConvertNumber from "./ConvertNumber";
 
-function ShowCountries({ data, showMore }) {
+function ShowCountries({ data, showMore, colorMode }) {
  
 const showMoreHandle = (e) => {
  showMore(e.target.id ? e.target.id:e.target.parentNode.id ? e.target.parentNode.id:e.target.parentNode.parentNode.id);
@@ -11,10 +11,10 @@ const showMoreHandle = (e) => {
 
 
   return (
-    <div className="countries">
+    <div className={colorMode ? "countries allNight":"countries"}>
       {data.map((data) => {
         return (
-          <div className="country" onClick={showMoreHandle} key={data.alpha3Code} id={data.name}>
+          <div className={colorMode ? "country allNight nightBorder":"country"} onClick={showMoreHandle} key={data.alpha3Code} id={data.name}>
             <img src={data.flag} alt="" />
             <h4>{data.name}</h4>
             <h5>Population: <ConvertNumber numberToConvert={data.population} /></h5>

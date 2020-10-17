@@ -98,12 +98,20 @@ img {
 #lightMode {
   align-self: flex-end;
   margin-right: 10px;
+  width: 50px;
 }
 
 .night {
-  background-color: rebeccapurple;
+  background-color: rgb(84, 178, 221);
 }
 .day {
   
-  background-color: salmon;
+  background-color: rgb(223, 233, 135);
+}
+.allNight {
+  background-color: rgb(149, 170, 190);
+}
+
+.nightBorder {
+  border: solid 1px rgb(170, 194, 218);
 }

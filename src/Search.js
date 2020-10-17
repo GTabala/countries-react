@@ -1,13 +1,13 @@
 import React from "react";
 
-const Search = ({ filterCountry, filterByRegion, regionArr, showDetail, setShowDetail }) => {
+const Search = ({ filterCountry, filterByRegion, regionArr, showDetail, setShowDetail, colorMode }) => {
 
   const goBack = () => {
     setShowDetail(false);
   };
 
   return (
-    <form className="form">
+    <form className={colorMode ? "form allNight":"form"}>
 
       <input
         type="text"
