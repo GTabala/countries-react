@@ -20,10 +20,11 @@ const Search = ({ filterCountry, filterByRegion, regionArr, showDetail, setShowD
       {showDetail && <button onClick={goBack}>Back</button> }
 
       <select onChange={filterByRegion} className="form-control">
-        <option value="">Filter by Region</option>
+        <option value="All">Filter by Region</option>
         {regionArr.map((item) => (
           <option value={item} key={item}>{item}</option>
         ))}
+        <option value="">Out of Region</option>
       </select>
 
     </form>

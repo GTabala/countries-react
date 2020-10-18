@@ -44,6 +44,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  padding-bottom: 140px;
 }
 .country, .countryDetail {
   margin: 10px;
@@ -99,19 +100,25 @@ img {
   align-self: flex-end;
   margin-right: 10px;
   width: 50px;
+
+}
+#lightMode:focus{
+  outline: none;
 }
 
 .night {
-  background-color: rgb(84, 178, 221);
+  background-color: rgb(68, 95, 119);
+  color: turquoise;
 }
 .day {
-  
-  background-color: rgb(223, 233, 135);
+  color:rgb(68, 95, 119);
+  background-color:turquoise;
 }
 .allNight {
-  background-color: rgb(149, 170, 190);
+  background-color: rgb(68, 95, 119);
 }
 
 .nightBorder {
-  border: solid 1px rgb(170, 194, 218);
+  /* border: solid 1px rgb(170, 194, 218); */
+  background-color: teal;
 }

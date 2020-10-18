@@ -43,7 +43,7 @@ function App() {
         (item) =>
           (item.name.toLowerCase().includes(search) ||
             item.capital.toLowerCase().includes(search)) &&
-          (e.target.value ? item.region === e.target.value : true)
+          (e.target.value !== "All" ? item.region === e.target.value : true)
       )
     );
     setRegion(e.target.value);
