@@ -15,7 +15,7 @@ function App() {
   const [showDetailCountry, setShowDetailCountry] = useState([]);
   const [colorMode, setColorMode] = useState(0);
   
-  useEffect(() => {fetch(`https://restcountries.eu/rest/v2/all`)
+  useEffect(() => {fetch(`https://restcountries.com/v3.1/all`)
   .then(resp => resp.json())
 .then(data => {setAllCountries(data); setCountryList(data)}) },[])
   
